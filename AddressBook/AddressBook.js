@@ -179,6 +179,23 @@ class AddressBookApp {
         this.saveAddressBooks();
         console.log(`Contacts in '${bookName}' sorted lexicographically by first name.`);
     }
+
+
+    sortContactsLexicographically(bookName, field) {
+        if (!this.addressBooks[bookName]) {
+            console.log(`Address Book '${bookName}' does not exist.`);
+            return;
+        }
+
+        if (!['firstName', 'lastName', 'city', 'state', 'zip', 'phone', 'email'].includes(field)) {
+            console.log("Invalid field. Sorting is allowed only by firstName, lastName, city, state, zip, phone, or email.");
+            return;
+        }
+
+        this.addressBooks[bookName].sort((a, b) => a[field].localeCompare(b[field]));
+        this.saveAddressBooks();
+        console.log(`Contacts in '${bookName}' sorted by '${field}' successfully.`);
+    }
 }
 
 
@@ -200,3 +217,4 @@ app.addContact("Work", "Vivek", "Sahu", "456 Market St", "New Jersery", "New jer
 app.searchByCityOrState("New York");
 app.countByCityOrState("New York");
 app.sortContactsLexicographically("Personal");
+app.sortContactsLexicographically("Work", "city");

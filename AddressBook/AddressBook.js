@@ -159,7 +159,20 @@ class AddressBookApp {
             console.log(`Contacts in '${cityOrState}':`, results);
         }
     }
+    countByCityOrState(cityOrState) {
+        let count = 0;
+        Object.keys(this.addressBooks).forEach(bookName => {
+            count += this.addressBooks[bookName].filter(contact =>
+                contact.city.toLowerCase() === cityOrState.toLowerCase() ||
+                contact.state.toLowerCase() === cityOrState.toLowerCase()
+            ).length;
+        });
+        console.log(`Total contacts in '${cityOrState}': ${count}`);
+        return count;
+    }
 }
+
+
 
 // Example Usage
 const app = new AddressBookApp();
@@ -176,3 +189,4 @@ app.addContact("Personal", "John", "Doe", "123 Main St", "New York", "Nwq idhhd"
 // app.searchByCityOrState("California");
 app.addContact("Work", "Vivek", "Sahu", "456 Market St", "New Jersery", "New jersey", "90001", "9123456789", "alice.smith@example.com");
 app.searchByCityOrState("New York")
+app.countByCityOrState("New York");

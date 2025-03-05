@@ -1,0 +1,10 @@
+[{
+    "firstName": "Vivek",
+    "lastName": "Doe",
+    "address": "123 Street",
+    "city": "New York",
+    "state": "NY",
+    "zip": "10001",
+    "phone": "9876543210",
+    "email": "john@example.com"
+}]

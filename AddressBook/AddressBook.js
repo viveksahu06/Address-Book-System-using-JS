@@ -67,7 +67,7 @@ class AddressBookApp {
 
     viewContacts(bookName) {
         if (!this.addressBooks[bookName]) {
-            console.log(`Address Book '${bookName}' does'nt exist.`);
+            console.log(`Address Book '${bookName}' does not exist.`);
             return;
         }
         console.log(`Contacts in '${bookName}':`, this.addressBooks[bookName]);
@@ -82,6 +82,29 @@ class AddressBookApp {
         this.saveAddressBooks();
         console.log(`Address Book '${bookName}' deleted successfully.`);
     }
+    editContact(bookName, firstName, lastName, newDetails) {
+        if (!this.addressBooks[bookName]) {
+            console.log(`Address Book '${bookName}' does not exist.`);
+            return;
+        }
+
+        let contacts = this.addressBooks[bookName];
+        let contact = contacts.find(c => c.firstName === firstName && c.lastName === lastName);
+
+        if (!contact) {
+            console.log(`Contact '${firstName} ${lastName}' not found in '${bookName}'.`);
+            return;
+        }
+
+        Object.keys(newDetails).forEach(key => {
+            if (contact[key] !== undefined && newDetails[key] !== undefined) {
+                contact[key] = newDetails[key];
+            }
+        });
+
+        this.saveAddressBooks();
+        console.log(`Contact '${firstName} ${lastName}' updated successfully!`);
+    }
 }
 
 // Example Usage
@@ -92,4 +115,4 @@ app.viewContacts("Personal");
 app.createAddressBook("Work");
 app.addContact("Work", "Alice", "Smith", "456 Market St", "Berkhera pathani", "California", "90001", "9123456789", "alice.smith@example.com");
 app.viewContacts("Work");
-// app.deleteAddressBook("Personal");
+app.editContact("Work", "Alice", "Smith", { phone: "9876543211", email: "john.new@example.com" });

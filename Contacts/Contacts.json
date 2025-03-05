@@ -1,10 +1,24 @@
-[{
-    "firstName": "Vivek",
-    "lastName": "Doe",
-    "address": "123 Street",
-    "city": "New York",
-    "state": "NY",
-    "zip": "10001",
-    "phone": "9876543210",
-    "email": "john@example.com"
-}]
+{
+    "Personal": [],
+    "Work": [{
+            "firstName": "Alice",
+            "lastName": "Smith",
+            "address": "456 Market St",
+            "city": "Berkhera pathani",
+            "state": "California",
+            "zip": "90001",
+            "phone": "9876543211",
+            "email": "john.new@example.com"
+        },
+        {
+            "firstName": "Alice",
+            "lastName": "Smith",
+            "address": "456 Market St",
+            "city": "Berkhera pathani",
+            "state": "California",
+            "zip": "90001",
+            "phone": "9123456789",
+            "email": "alice.smith@example.com"
+        }
+    ]
+}

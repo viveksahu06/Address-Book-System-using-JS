@@ -1,4 +1,12 @@
 {
-    "Personal": [],
-    "Work": []
+    "Personal": [
+        "John",
+        {
+            "name": "John Doe",
+            "phone": "1234567890"
+        }
+    ],
+    "Work": [
+        "Alice"
+    ]
 }
